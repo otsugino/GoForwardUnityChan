@@ -21,4 +21,29 @@ public class CubeController : MonoBehaviour {
 			Destroy(gameObject);
         }
 	}
+
+	// 他のオブジェクトと衝突時に音を再生
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		// groundと衝突時に音を再生
+		if (other.gameObject.tag == "GroundTag")
+		{
+			this.GetComponent<AudioSource>().Play();
+
+		// Unitychanと衝突時は何も発生しない。
+		}
+		if (other.gameObject.tag == "UnityChan2DTag")
+		{
+		}
+
+		// 他のcubeと衝突時に音を再生
+		if (other.gameObject.tag == "CubeTag")
+		{
+			this.GetComponent<AudioSource>().Play();
+			
+
+		}
+	}
+
+
 }
